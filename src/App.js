@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import Store from './AppStore';
 import EmployeeList from './EmployeeList';
+import EnvCheck from './EnvCheck';
 import './App.css';
 
 class App extends Component {
   render() {
-    console.log('store', Store.employees);
-
     return (
       <div className="App">
         <EmployeeList employees={Store.employees} />
+        <EnvCheck />
       </div>
     );
   }
