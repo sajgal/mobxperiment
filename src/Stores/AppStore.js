@@ -1,11 +1,13 @@
 import faker from 'faker';
 
 class Store {
-  employees = [
-    {name: "Matej", deskId: 23},
-    {name: "Bruce", deskId: 12},
-    {name: "Sam", deskId: 76},
-  ]
+  employees = [];
+
+  constructor() {
+    for (let index = 0; index < 3; index++) {
+      this.employees.push(this.createFakeEmployee());
+    }
+  }
 
   createFakeEmployee() {
     return {
