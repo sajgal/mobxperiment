@@ -1,23 +1,27 @@
+import './App.css';
+import { observable, configure, action } from 'mobx';
+import DevTools from 'mobx-react-devtools';
+import EmployeeList from './EmployeeList';
 import React from 'react';
 import Store from './Stores/AppStore';
-import EmployeeList from './EmployeeList';
-import { observable } from 'mobx';
-import './App.css';
+
+configure({ enforceActions: "always" });
 
 const appState = observable({
   employees: Store.employees,
 
-  add: () => {
+  add: action(() => {
     appState.employees = [
       ...appState.employees,
       Store.createFakeEmployee(),
     ]
-  },
+  }),
 });
 
 const App = () => (
   <div className="App">
     <EmployeeList state={appState} />
+    <DevTools />
   </div>
 );
 
