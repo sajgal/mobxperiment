@@ -8,7 +8,7 @@ export default observer(props => {
 
   const list = props.state.employees.map((employee, index) => {
     return <div key={`emp-${index}`}>
-      <b>{employee.name}</b> - desk <b>#{employee.deskId}</b>
+      <b>{employee.name}</b> - desk <b>#{employee.deskId} ({props.state.deskFloor[employee.deskId]} floor)</b>
     </div>
   });
 

@@ -10,12 +10,22 @@ configure({ enforceActions: "always" });
 const appState = observable({
   employees: Store.employees,
 
-  add: action(() => {
+  add: action('add employee', () => {
     appState.employees = [
       ...appState.employees,
       Store.createFakeEmployee(),
     ]
   }),
+
+  get deskFloor() {
+    const deskFloor = [];
+
+    appState.employees.forEach(employee => {
+      deskFloor[employee.deskId] = (employee.deskId < 50) ? 'first' : 'second';
+    });
+
+    return deskFloor;
+  },
 });
 
 const App = () => (
