@@ -2,7 +2,7 @@ import EmployeeStore from './EmployeeStore';
 
 class RootStore {
   constructor() {
-    this.employeeStore = new EmployeeStore(this)
+    this.employeeStore = new EmployeeStore()
   }
 }
 

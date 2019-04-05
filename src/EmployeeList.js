@@ -1,22 +1,25 @@
 import React from 'react';
-import { observer } from 'mobx-react';
+import { observer, inject } from 'mobx-react';
 
-export default observer(['rootStore'], props => {
-  const employees = props.rootStore.employeeStore.employees;
-  const deskFloor = props.rootStore.employeeStore.deskFloor;
-
-  if (employees === undefined || employees.length === 0) {
+const EmployeeList = props => {
+  if (props.employees === undefined || props.employees.length === 0) {
     return <div>Empty</div>
   }
 
-  const list = employees.map((employee, index) => {
+  const list = props.employees.map((employee, index) => {
     return <div key={`emp-${index}`}>
-      <b>{employee.name}</b> - desk <b>#{employee.deskId} ({deskFloor[employee.deskId]} floor)</b>
+      <b>{employee.name}</b> - desk <b>#{employee.deskId} ({props.deskFloor[employee.deskId]} floor)</b>
     </div>
   });
 
   return <div>
     {list}
-    <button onClick={props.rootStore.employeeStore.add}>+</button>
+    <button onClick={props.add}>+</button>
   </div>
-});
+};
+
+export default inject(stores => ({
+  employees: stores.rootStore.employeeStore.employees,
+  deskFloor: stores.rootStore.employeeStore.deskFloor,
+  add: stores.rootStore.employeeStore.add,
+}))(observer(EmployeeList));

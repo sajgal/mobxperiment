@@ -8,8 +8,6 @@ class EmployeeStore {
     for (let index = 0; index < 3; index++) {
       this.add();
     }
-
-    this.add = this.add.bind(this);
   }
 
   createFakeEmployee() {
@@ -39,6 +37,6 @@ class EmployeeStore {
 
 export default decorate(EmployeeStore, {
   employees: observable,
-  add: action,
+  add: action.bound,
   deskFloor: computed,
 });

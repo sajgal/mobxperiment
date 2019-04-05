@@ -6,8 +6,7 @@ import React from 'react';
 import Store from './Stores/RootStore';
 import { Provider } from 'mobx-react';
 
-// TODO: implement strict actions enforcing
-// configure({ enforceActions: "always" });
+configure({ enforceActions: "observed" });
 
 const App = () => (
   <Provider rootStore={new Store()}>
