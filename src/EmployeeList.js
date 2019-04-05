@@ -22,4 +22,4 @@ export default inject(stores => ({
   employees: stores.rootStore.employeeStore.employees,
   deskFloor: stores.rootStore.employeeStore.deskFloor,
   add: stores.rootStore.employeeStore.add,
-}))(observer(EmployeeList));
+}))(EmployeeList);
