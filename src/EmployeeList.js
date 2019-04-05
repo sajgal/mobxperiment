@@ -1,5 +1,5 @@
 import React from 'react';
-import { observer, inject } from 'mobx-react';
+import { inject } from 'mobx-react';
 
 const EmployeeList = props => {
   if (props.employees === undefined || props.employees.length === 0) {
