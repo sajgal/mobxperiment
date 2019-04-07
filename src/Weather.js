@@ -6,7 +6,7 @@ import { Icon } from "antd";
 class Weather extends React.Component {
   render () {
     return <div>
-      Weather currently: {this.props.isLoading ? <Icon type="loading" /> : this.props.weather.currently.temperature}
+      Weather currently: {this.props.isLoading ? <Icon type="loading" /> : `${this.props.weather.currently.temperature} °C`}
     </div>
   }
 }
