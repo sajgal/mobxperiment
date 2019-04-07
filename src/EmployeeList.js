@@ -1,5 +1,6 @@
 import React from 'react';
 import { inject } from 'mobx-react';
+import { Button } from "antd";
 
 const EmployeeList = props => {
   if (props.employees === undefined || props.employees.length === 0) {
@@ -14,7 +15,7 @@ const EmployeeList = props => {
 
   return <div>
     {list}
-    <button onClick={props.add}>+</button>
+    <Button type="primary" shape="circle" icon="plus" onClick={props.add} />
   </div>
 };
 
