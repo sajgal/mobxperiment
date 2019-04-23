@@ -9,5 +9,6 @@ module.exports = function (app) {
     .then(response => {
       res.json(response.data);
     })
+    .catch(error => console.log('error occured API weather call', error))
   });
 };

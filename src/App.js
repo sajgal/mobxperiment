@@ -6,6 +6,7 @@ import React from 'react';
 import Store from './Stores/RootStore';
 import { Provider } from 'mobx-react';
 import Weather from './Weather'
+import Anime from './Anime';
 
 import "antd/dist/antd.css";
 
@@ -16,6 +17,7 @@ const App = () => (
     <div className="App">
       <EmployeeList />
       <Weather />
+      <Anime />
       <DevTools />
     </div>
   </Provider>
